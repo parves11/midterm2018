@@ -13,17 +13,29 @@ public class Sort {
         final long startTime = System.currentTimeMillis();
         int [] list = array;
 
-        for(int j=0; j<array.length-1; j++){
-            int min = j;
-            for(int i=j+1; i<array.length; i++) {
-                if (array[i] < array[min])
-                    min = i;
+        for(int i=0; i<array.length; i++) {
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[j] < array[i]) {
+                    int temp = array[j];
+                    array[j] = array[i];
+                    array[i] = temp;
+                }
             }
 
-            int temp = array[min];
-            array[min] = array[j];
-            array[j] = temp;
         }
+
+
+        //for(int j=0; j<array.length-1; j++){
+          //  int min = j;
+           // for(int i=j+1; i<array.length; i++) {
+             //   if (array[i] < array[min])
+                //    min = i;
+            //}
+
+           // int temp = array[min];
+           // array[min] = array[j];
+            //array[j] = temp;
+        //}
 
         final long endTime = System.currentTimeMillis();
         final long executionTime = endTime - startTime;
